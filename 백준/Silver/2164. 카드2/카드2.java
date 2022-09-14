@@ -1,4 +1,3 @@
-
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
@@ -22,8 +21,8 @@ public class Main {
             queue.poll();  // 큐버리고
             queue.add(queue.poll()); //큐에서 꺼내서 뒤로집어넣고
         }
-        System.out.println(queue.peek());
-//        System.out.println(queue.element().toString());
+        
+        System.out.println(queue.element().toString());
 
 
     }
