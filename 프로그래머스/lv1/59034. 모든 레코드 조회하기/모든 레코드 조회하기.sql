@@ -1,1 +1,1 @@
-SELECT *  FROM ANIMAL_INS;
+select * from animal_ins
