@@ -1,5 +1,3 @@
-
-SELECT ANIMAL_ID 
-FROM ANIMAL_INS
-WHERE NAME is NULL
-
+select animal_id from animal_ins
+where name is NULL
+order by animal_id
