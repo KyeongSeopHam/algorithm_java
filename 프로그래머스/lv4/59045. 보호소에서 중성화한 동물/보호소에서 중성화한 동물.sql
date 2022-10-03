@@ -1,7 +1,7 @@
+select i.animal_id , i.animal_type, i.name
+from animal_ins as i join animal_outs as o
 
-SELECT I.ANIMAL_ID, I.ANIMAL_TYPE, I.NAME 
-FROM ANIMAL_INS as I JOIN ANIMAL_OUTS as O 
+where i.animal_id = o.animal_id
+            AND 
+i.SEX_UPON_INTAKE != o.SEX_UPON_OUTCOME
 
-WHERE I.ANIMAL_ID = O.ANIMAL_ID
-                 AND 
-I.SEX_UPON_INTAKE != O.SEX_UPON_OUTCOME
