@@ -4,7 +4,7 @@
 #결과는 이름 순으로 조회해주세요.
 select name , count(name)
 from animal_ins
-
+where name is not null
 group by name 
-having count(name) > 1
-order by name 
+having count(name) >= 2
+order by name
