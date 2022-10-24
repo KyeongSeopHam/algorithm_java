@@ -1,38 +1,39 @@
-import java.util.Arrays;
-import java.util.Scanner;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Arrays;
+
+/*
+61423  ---->  64321
+
+
+ */
 public class Main {
 
-    public static void main(String[] args) {
-  // "234" -> 432
+    public static void main(String[] args) throws IOException {
 
-        Scanner sc = new Scanner(System.in);
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        String stringItem = sc.next();  // String type의 문자열 입력받고
+        String s = br.readLine();
+        String c[] = new String[s.length()];
 
-        int intArrayItem[] = new int[stringItem.length()];  // String->int[]
-
-        for(int i=0; i<stringItem.length(); i++){
-            intArrayItem[i] = Integer.parseInt(stringItem.substring(i,i+1));
-
+        for (int i = 0; i < c.length; i++) {
+            c[i] = s.substring(i, i + 1);
         }
-        //선택정렬
-        for(int i=0; i<stringItem.length(); i++){
-            int max =i; // 최대값 기본 설정
-            for(int j= i+1; j<stringItem.length(); j++){
-                if(intArrayItem[j] >intArrayItem[max]){
-                    max=j;
-                }
-            }
-        //swap 구간
-            if(intArrayItem[i] < intArrayItem[max]){
-                int temp =  intArrayItem[i];
-                intArrayItem[i] =intArrayItem[max];
-                intArrayItem[max] = temp;
-            }
+
+        Arrays.sort(c);
+        //3232->2233
+
+
+        for(int i=s.length()-1; 0<=i; i--){
+            System.out.print( c[i] );
         }
-        for(int i=0; i<stringItem.length(); i++){
-            System.out.print(intArrayItem[i]);
-        }
+
+
+//        for(int i=s.length(); i<=0; i--){
+//            System.out.print(c[i]);
+
+
     }
 }
