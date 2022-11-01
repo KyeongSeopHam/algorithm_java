@@ -1,15 +1,25 @@
--- 코드를 입력하세요
-SELECT NAME, DATETIME
-FROM ANIMAL_INS
-WHERE ANIMAL_ID NOT IN
+# 아직 입양을 못 간 동물 중, 가장 오래 보호소에 
+# 있었던 동물 3마리의 이름과 보호 시작일을 조회하는 SQL문을 작성해주세요.
+# 이때 결과는 보호 시작일 순으로 조회해야 합니다.
+# ------------------------------------------------------------------------
+# step
+#  sql문 결과문을 보면  name,datetime의 내용들이 필요한걸 확인할수 있다.
+#  문제를 읽어보면 동물3마리의 이름과 보호시작일을 조회하라고했다.
+#  동물 3마리인걸 보면 어떤기준인진모르겠지만 limit 3 을 써야겠구나 라는걸 인지하면되고
+#  이때 문제를 잘 읽어보면  가장 오래 보호소에 있었던 동물 3마리라고한다. 그런데
+#  이 동물들은 아직 입양을 못간 동물이라는게 키 포인트이다.
+#  그럼 그동물들은 지금 입양전이니까 animal_in에 있을것이다.
+#  그럼 입양간테이블은 animal_out이니까 아이디를 비교해서 outs쪽에 aimal_in의 id가 존재하지않는
+#  3명의 아이들을 뽑아주면된다. 이떄 3명의 아이들의 기준은 가장 오래 보호소에 있던 아이들이니까
+#  정렬을 할때 asc 오름차순으로 하면 먼저들어왔던애들부터(시간별)로 조회하면될것이다.
+# -------------------------------------------------------------------------
+
+select name, datetime
+from animal_ins
+where animal_id not in
 (
-    SELECT ANIMAL_ID
-    FROM ANIMAL_OUTS
-
-
+  select animal_id
+    from animal_outs
 )
-
-
-
-ORDER BY DATETIME ASC
-LIMIT 3
+order by datetime asc
+limit 3
