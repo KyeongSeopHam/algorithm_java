@@ -2,6 +2,8 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.lang.*;
+
 
 public class Main {
 
@@ -47,7 +49,7 @@ public class Main {
     static boolean isPrime(int num)  // 처음 21이 들어왔다고하면
     {
    // 23   1  23
-        for (int i = 2; i < num/2; i++)  //  21/2=10.5만큼반복    2 3 4 5 6 7 8 9 10
+        for (int i = 2; i <= Math.sqrt(num); i++)  //  21/2=10.5만큼반복    2 3 4 5 6 7 8 9 10
         {
             if (num % i == 0)   //여기에 걸리면 소수가아니므로 리턴
             {
